@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace BonusAssignmnet
@@ -23,7 +23,15 @@ namespace BonusAssignmnet
 
                 ParseInput(raw);
                 Console.WriteLine();
+                ClearStacksAndQueue();
             }
+        }
+
+        private static void ClearStacksAndQueue()
+        {
+            while (Stack.Count != 0) Stack.Pop();
+            while (Input.Count != 0) Input.Dequeue();
+            while (Symbol.Count != 0) Symbol.Pop();
         }
 
         private static void ParseInput(string raw)
@@ -60,7 +68,7 @@ namespace BonusAssignmnet
         private static void InitializeColumnsDictionary()
         {
             _columnsDictionary =
-                new Dictionary<char, int> { { 'a', 0 }, { 'b', 1 }, { '$', 2 }, { 'S', 3 } };
+                new Dictionary<char, int> {{'a', 0}, {'b', 1}, {'$', 2}, {'S', 3}};
         }
 
         private static void Shift(string input)
